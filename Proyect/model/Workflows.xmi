@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proyect:Workflows
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:proyect="http://www.example.org/proyect"
+    xsi:schemaLocation="http://www.example.org/proyect proyect.ecore"
+    Nombre="Pizza">
+  <actores Nombre="Antonio">
+    <tarea xsi:type="proyect:Estado_Inicial"
+        tarea_asociada="//@actores.0/@tarea.1"
+        Nombre=""/>
+    <tarea xsi:type="proyect:T_Usuario"
+        tarea_asociada="//@actores.0/@tarea.2"
+        Nombre=""
+        ID="1">
+      <datos>
+        <tipodatos
+            Tipo="String"
+            Descripcion="TareaUsuario"/>
+        <tipodatos
+            Tipo="integer"
+            Descripcion="identificador"/>
+      </datos>
+      <datos>
+        <tipodatos
+            Tipo="string"
+            Descripcion="Para el mensaje"/>
+      </datos>
+    </tarea>
+    <tarea xsi:type="proyect:T_Servicio"
+        tarea_asociada="//@actores.0/@tarea.4"
+        Nombre="EstoEsUnaTarea"
+        Descripcion="Utilizando el objeto datos de tarea usuario"
+        ID="324"
+        datos_servicio="//@actores.0/@tarea.1/@datos.0"/>
+    <tarea xsi:type="proyect:T_RecibirMensaje"
+        tarea_asociada="//@actores.0/@tarea.1"
+        Nombre=""
+        ID="6"
+        datos_Recibir_Mensaje="//@actores.0/@tarea.1/@datos.1"/>
+    <tarea xsi:type="proyect:Estado_Final"
+        Nombre=""
+        Descripcion=""/>
+  </actores>
+  <actores Nombre="Ayuso">
+    <tarea xsi:type="proyect:T_EnviarMensaje"
+        tarea_asociada="//@actores.0/@tarea.3"
+        Nombre="aaa"
+        Descripcion=""
+        ID="5"
+        datos_Enviar_Mensaje="//@actores.0/@tarea.1/@datos.1"/>
+    <tarea xsi:type="proyect:T_Usuario"
+        tarea_asociada="//@actores.0/@tarea.4"
+        Nombre="TusuarioAyu"
+        ID="3"/>
+  </actores>
+</proyect:Workflows>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="proyect" nsURI="http://www.example.org/proyect" nsPrefix="proyect">
+  <eAnnotations source="gmf"/>
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Workflows">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="workflow_inicio_unico workflow_final_unico"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="workflow_inicio_unico" value="self.actores.tarea->selectByType(Estado_Inicial)->size()=1"/>
+      <details key="workflow_final_unico" value="self.actores.tarea->selectByType(Estado_Final)->size()=1"/>
+    </eAnnotations>
+    <eAnnotations source="gmf.diagram"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actores" lowerBound="1"
+        upperBound="-1" eType="#//Actor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="min_una_tarea"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="min_una_tarea" value="self.tarea->size()>0"/>
+    </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="label" value="Nombre"/>
+      <details key="border.color" value="37,234,14"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tarea" upperBound="-1"
+        eType="#//Tarea" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tarea" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="tarea_inicio"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="tarea_inicio" value="self.tarea_asociada->selectByType(Estado_Inicial)->size()=0"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tarea_asociada" eType="#//Tarea">
+      <eAnnotations source="gmf.link">
+        <details key="label" value="Nombre"/>
+        <details key="source" value="Tarea"/>
+        <details key="target" value="Tarea"/>
+        <details key="width" value="3"/>
+        <details key="style" value="solid"/>
+        <details key="color" value="0,76,255"/>
+        <details key="target.decoration" value="arrow"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Estado_Inicial" eSuperTypes="#//Tarea">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="asociada_no_repetida tarea_siguiente_true"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="asociada_no_repetida" value="self.ID&lt;>self.tarea_asociada.ID"/>
+      <details key="tarea_siguiente_true" value="self.tarea_asociada->size()=1"/>
+    </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="label" value="Nombre"/>
+      <details key="svg.uri" value="platform:/plugin/Proyect/model/img/circulo.svg"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="T_Usuario" eSuperTypes="#//Tarea">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="asociada_no_repetida tarea_siguiente_true"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="asociada_no_repetida" value="self.ID&lt;>self.tarea_asociada.ID"/>
+      <details key="tarea_siguiente_true" value="self.tarea_asociada->size()=1"/>
+    </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="rectangle"/>
+      <details key="label" value="Nombre"/>
+      <details key="border.color" value="14,47,234"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datos" upperBound="-1"
+        eType="#//Objeto_de_Datos" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="T_Servicio" eSuperTypes="#//Tarea">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="asociada_no_repetida tarea_siguiente_true"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="asociada_no_repetida" value="self.ID&lt;>self.tarea_asociada.ID"/>
+      <details key="tarea_siguiente_true" value="self.tarea_asociada->size()=1"/>
+    </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="Nombre"/>
+      <details key="figure" value="rectangle"/>
+      <details key="border.color" value="254,254,6"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datos_servicio" eType="#//Objeto_de_Datos">
+      <eAnnotations source="gmf.link">
+        <details key="label" value="Nombre"/>
+        <details key="source" value="Tarea"/>
+        <details key="target" value="Objeto_de_Datos"/>
+        <details key="width" value="3"/>
+        <details key="style" value="dash"/>
+        <details key="color" value="255,035,001"/>
+        <details key="target.decoration" value="arrow"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="T_EnviarMensaje" eSuperTypes="#//Tarea">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="sig_tarea_recibMsg distinto_actores"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="sig_tarea_recibMsg" value="self.tarea_asociada->selectByType(T_RecibirMensaje)->size()=1"/>
+      <details key="distinto_actores" value="self.oclContainer()&lt;>self.tarea_asociada.oclContainer"/>
+    </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="Nombre"/>
+      <details key="figure" value="rectangle"/>
+      <details key="border.color" value="254,6,167"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datos_Enviar_Mensaje" upperBound="-1"
+        eType="#//Objeto_de_Datos">
+      <eAnnotations source="gmf.link">
+        <details key="label" value="Nombre"/>
+        <details key="source" value="Tarea"/>
+        <details key="target" value="Objeto_de_Datos"/>
+        <details key="width" value="3"/>
+        <details key="style" value="dash"/>
+        <details key="color" value="255,035,001"/>
+        <details key="target.decoration" value="arrow"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="T_RecibirMensaje" eSuperTypes="#//Tarea">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="asociada_no_repetida tarea_siguiente_true"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="asociada_no_repetida" value="self.ID&lt;>self.tarea_asociada.ID"/>
+      <details key="tarea_siguiente_true" value="self.tarea_asociada->size()=1"/>
+    </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="label" value="Nombre"/>
+      <details key="figure" value="rectangle"/>
+      <details key="border.color" value="151,9,101"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datos_Recibir_Mensaje"
+        upperBound="-1" eType="#//Objeto_de_Datos">
+      <eAnnotations source="gmf.link">
+        <details key="label" value="Nombre"/>
+        <details key="source" value="Tarea"/>
+        <details key="target" value="Objeto_de_Datos"/>
+        <details key="width" value="3"/>
+        <details key="style" value="dash"/>
+        <details key="color" value="255,035,001"/>
+        <details key="target.decoration" value="arrow"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Estado_Final" eSuperTypes="#//Tarea">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="tarea_final"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="tarea_final" value="self.tarea_asociada->size()=0"/>
+    </eAnnotations>
+    <eAnnotations source="gmf.node">
+      <details key="figure" value="svg"/>
+      <details key="label" value="Nombre"/>
+      <details key="svg.uri" value="platform:/plugin/Proyect/model/img/circulo.svg"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Objeto_de_Datos">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="nombre"/>
+      <details key="figure" value="rectangle"/>
+      <details key="border.color" value="14,234,220"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tipodatos" lowerBound="1"
+        upperBound="-1" eType="#//TipoDatos" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TipoDatos">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="Descripcion"/>
+      <details key="figure" value="rectangle"/>
+      <details key="border.color" value="6,254,246"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Tipo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Descripcion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

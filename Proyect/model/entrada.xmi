@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proyect:Workflows
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:proyect="http://www.example.org/proyect">
+  <actores Nombre="Ayuso(Cliente)">
+    <tarea xsi:type="proyect:Estado_Inicial"
+        tarea_asociada="//@actores.0/@tarea.5"
+        Nombre="Inicio"/>
+    <tarea xsi:type="proyect:T_EnviarMensaje"
+        tarea_asociada="//@actores.1/@tarea.0"
+        Nombre="Enviar Pedido"
+        ID="3"
+        datos_Enviar_Mensaje="//@actores.0/@tarea.5/@datos.0 //@actores.0/@tarea.4/@datos.0"/>
+    <tarea xsi:type="proyect:T_RecibirMensaje"
+        tarea_asociada="//@actores.0/@tarea.6"
+        Nombre="Recoger Pizza"
+        ID="7"/>
+    <tarea xsi:type="proyect:Estado_Final"
+        Nombre="Final"
+        ID="9"/>
+    <tarea xsi:type="proyect:T_Usuario"
+        tarea_asociada="//@actores.0/@tarea.1"
+        Nombre="Datos Personales"
+        ID="2">
+      <datos
+          nombre="Datos_Cliente">
+        <tipodatos
+            Tipo="text"
+            Descripcion="Nombre"/>
+        <tipodatos
+            Tipo="text"
+            Descripcion="Apellidos"/>
+        <tipodatos
+            Tipo="text"
+            Descripcion="Direccion"/>
+        <tipodatos
+            Tipo="number"
+            Descripcion="Telefono"/>
+      </datos>
+    </tarea>
+    <tarea xsi:type="proyect:T_Usuario"
+        tarea_asociada="//@actores.0/@tarea.4"
+        Nombre="Pedido Pizza"
+        Descripcion=""
+        ID="1">
+      <datos
+          nombre="Datos_Pedidos">
+        <tipodatos
+            Tipo="text"
+            Descripcion="Ingredientes"/>
+        <tipodatos
+            Tipo="number"
+            Descripcion="Cantidad"/>
+      </datos>
+    </tarea>
+    <tarea xsi:type="proyect:T_Usuario"
+        tarea_asociada="//@actores.0/@tarea.3"
+        Nombre="valoracion">
+      <datos
+          nombre="Valoracion">
+        <tipodatos
+            Tipo="number"
+            Descripcion="Puntuacion"/>
+      </datos>
+    </tarea>
+  </actores>
+  <actores Nombre="Angel(Pizzeria)">
+    <tarea xsi:type="proyect:T_RecibirMensaje"
+        tarea_asociada="//@actores.1/@tarea.1"
+        Nombre="Recoger Pedido"
+        ID="4"
+        datos_Recibir_Mensaje="//@actores.0/@tarea.5/@datos.0 //@actores.0/@tarea.4/@datos.0"/>
+    <tarea xsi:type="proyect:T_Servicio"
+        tarea_asociada="//@actores.1/@tarea.2"
+        Nombre="Cocinar Pizza"
+        ID="5"
+        datos_servicio="//@actores.0/@tarea.5/@datos.0"/>
+    <tarea xsi:type="proyect:T_EnviarMensaje"
+        tarea_asociada="//@actores.0/@tarea.2"
+        Nombre="Pizza Lista"
+        ID="6"/>
+  </actores>
+</proyect:Workflows>

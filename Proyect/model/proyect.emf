@@ -1,0 +1,90 @@
+@gmf
+@"http://www.eclipse.org/OCL/Import"(ecore="http://www.eclipse.org/emf/2002/Ecore")
+@Ecore(invocationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", settingDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", validationDelegates="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot")
+@namespace(uri="http://www.example.org/proyect", prefix="proyect")
+package proyect;
+
+@Ecore(constraints="workflow_inicio_unico workflow_final_unico")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(workflow_inicio_unico="self.actores.tarea->selectByType(Estado_Inicial)->size()=1", workflow_final_unico="self.actores.tarea->selectByType(Estado_Final)->size()=1")
+@gmf.diagram
+class Workflows {
+  val Actor[+] actores;
+  attr String Nombre;
+}
+
+@Ecore(constraints="min_una_tarea")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(min_una_tarea="self.tarea->size()>0")
+@gmf.node(figure="rectangle", label="Nombre",border.color="37,234,14")
+class Actor {
+  @gmf.compartment(collapsible="true")
+  val Tarea[*] tarea;
+  attr String Nombre;
+}
+
+@Ecore(constraints="tarea_inicio")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(tarea_inicio="self.tarea_asociada->selectByType(Estado_Inicial)->size()=0")
+abstract class Tarea {
+  @gmf.link(label="Nombre" , source="Tarea" , target="Tarea" , width="3", style="solid",color="0,76,255",target.decoration="arrow")
+  ref Tarea tarea_asociada;
+  attr String Nombre;
+  attr String Descripcion;
+  attr int ID;
+}
+
+@Ecore(constraints="asociada_no_repetida tarea_siguiente_true")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(asociada_no_repetida="self.ID<>self.tarea_asociada.ID", tarea_siguiente_true="self.tarea_asociada->size()=1")
+@gmf.node(figure="svg",label="Nombre",svg.uri="platform:/plugin/Proyect/model/img/circulo.svg")
+class Estado_Inicial extends Tarea {
+}
+
+@Ecore(constraints="asociada_no_repetida tarea_siguiente_true")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(asociada_no_repetida="self.ID<>self.tarea_asociada.ID", tarea_siguiente_true="self.tarea_asociada->size()=1")
+@gmf.node(figure="rectangle", label="Nombre",border.color="14,47,234")
+class T_Usuario extends Tarea {
+  @gmf.compartment(collapsible="true")
+  val Objeto_de_Datos[*] datos;
+}
+
+@Ecore(constraints="asociada_no_repetida tarea_siguiente_true")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(asociada_no_repetida="self.ID<>self.tarea_asociada.ID", tarea_siguiente_true="self.tarea_asociada->size()=1")
+@gmf.node(label="Nombre" ,figure="rectangle",border.color="254,254,6")
+class T_Servicio extends Tarea {
+   @gmf.link(label="Nombre" , source="Tarea" , target="Objeto_de_Datos" , width="3", style="dash",color="255,035,001",target.decoration="arrow")
+  ref Objeto_de_Datos datos_servicio;
+}
+
+@Ecore(constraints="sig_tarea_recibMsg distinto_actores")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(sig_tarea_recibMsg="self.tarea_asociada->selectByType(T_RecibirMensaje)->size()=1", distinto_actores="self.oclContainer()<>self.tarea_asociada.oclContainer")
+@gmf.node(label="Nombre" ,figure="rectangle",border.color="254,6,167")
+class T_EnviarMensaje extends Tarea {
+  @gmf.link(label="Nombre" , source="Tarea" , target="Objeto_de_Datos" , width="3", style="dash",color="255,035,001",target.decoration="arrow")
+  ref Objeto_de_Datos[*] datos_Enviar_Mensaje;
+}
+
+@Ecore(constraints="asociada_no_repetida tarea_siguiente_true")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(asociada_no_repetida="self.ID<>self.tarea_asociada.ID", tarea_siguiente_true="self.tarea_asociada->size()=1")
+@gmf.node(label="Nombre" ,figure="rectangle",border.color="151,9,101")
+class T_RecibirMensaje extends Tarea {
+   @gmf.link(label="Nombre" , source="Tarea" , target="Objeto_de_Datos" , width="3", style="dash",color="255,035,001",target.decoration="arrow")
+  ref Objeto_de_Datos[*] datos_Recibir_Mensaje;
+}
+
+@Ecore(constraints="tarea_final")
+@"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"(tarea_final="self.tarea_asociada->size()=0")
+@gmf.node(figure="svg",label="Nombre",svg.uri="platform:/plugin/Proyect/model/img/circulo.svg")
+class Estado_Final extends Tarea {
+}
+
+@gmf.node(label="nombre" ,figure="rectangle",border.color="14,234,220")
+class Objeto_de_Datos {
+  @gmf.compartment(collapsible="true")
+  val TipoDatos[+] tipodatos;
+  attr String nombre;
+}
+
+@gmf.node(label="Descripcion" ,figure="rectangle",border.color="6,254,246")
+class TipoDatos {
+  attr String Tipo;
+  attr String Descripcion;
+}
+

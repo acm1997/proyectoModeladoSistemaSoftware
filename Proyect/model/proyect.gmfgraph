@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gmfgraph:Canvas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="proyect">
+  <figures name="Default">
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="TareaTarea_asociadaFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="T_ServicioDatos_servicioFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="T_EnviarMensajeDatos_Enviar_MensajeFigureTargetDecoration"/>
+    <figures xsi:type="gmfgraph:PolylineDecoration" name="T_RecibirMensajeDatos_Recibir_MensajeFigureTargetDecoration"/>
+    <descriptors name="ActorFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="ActorFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="37" green="234" blue="14"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="ActorLabelFigure" text="Actor">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="ActorTareaCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureActorLabelFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors accessor="getActorTareaCompartmentFigure" figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="Estado_InicialFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="Estado_InicialFigure" documentURI="platform:/plugin/Proyect/model/img/circulo.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="Estado_InicialLabelFigure" text="Estado_Inicial"/>
+      </actualFigure>
+      <accessors accessor="getFigureEstado_InicialLabelFigure" figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="T_UsuarioFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="T_UsuarioFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="14" green="47" blue="234"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="T_UsuarioLabelFigure" text="T_Usuario">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="T_UsuarioDatosCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureT_UsuarioLabelFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.0"/>
+      <accessors accessor="getT_UsuarioDatosCompartmentFigure" figure="//@figures.0/@descriptors.2/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="T_ServicioFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="T_ServicioFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="254" green="254" blue="6"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="T_ServicioLabelFigure" text="T_Servicio"/>
+      </actualFigure>
+      <accessors accessor="getFigureT_ServicioLabelFigure" figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="T_EnviarMensajeFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="T_EnviarMensajeFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="254" green="6" blue="167"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="T_EnviarMensajeLabelFigure" text="T_EnviarMensaje"/>
+      </actualFigure>
+      <accessors accessor="getFigureT_EnviarMensajeLabelFigure" figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="T_RecibirMensajeFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="T_RecibirMensajeFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="151" green="9" blue="101"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="T_RecibirMensajeLabelFigure" text="T_RecibirMensaje"/>
+      </actualFigure>
+      <accessors accessor="getFigureT_RecibirMensajeLabelFigure" figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="Estado_FinalFigure">
+      <actualFigure xsi:type="gmfgraph:SVGFigure" name="Estado_FinalFigure" documentURI="platform:/plugin/Proyect/model/img/circulo.svg">
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="Estado_FinalLabelFigure" text="Estado_Final"/>
+      </actualFigure>
+      <accessors accessor="getFigureEstado_FinalLabelFigure" figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="Objeto_de_DatosFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="Objeto_de_DatosFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="14" green="234" blue="220"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="Objeto_de_DatosLabelFigure" text="Objeto_de_Datos">
+          <maximumSize dx="10000" dy="50"/>
+        </children>
+        <children xsi:type="gmfgraph:Rectangle" name="Objeto_de_DatosTipodatosCompartmentFigure" outline="false"/>
+      </actualFigure>
+      <accessors accessor="getFigureObjeto_de_DatosLabelFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+      <accessors accessor="getObjeto_de_DatosTipodatosCompartmentFigure" figure="//@figures.0/@descriptors.7/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors name="TipoDatosFigure">
+      <actualFigure xsi:type="gmfgraph:Rectangle" name="TipoDatosFigure">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="6" green="254" blue="246"/>
+        <border xsi:type="gmfgraph:MarginBorder">
+          <insets top="5" left="5" bottom="5" right="5"/>
+        </border>
+        <children xsi:type="gmfgraph:Label" name="TipoDatosLabelFigure" text="TipoDatos"/>
+      </actualFigure>
+      <accessors accessor="getFigureTipoDatosLabelFigure" figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors name="TareaTarea_asociadaFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="TareaTarea_asociadaFigure" lineWidth="3" targetDecoration="//@figures.0/@figures.0">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" green="76" blue="255"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="TareaTarea_asociadaExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="TareaTarea_asociadaExternalLabel" text="Nombre"/>
+    </descriptors>
+    <descriptors name="T_ServicioDatos_servicioFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="T_ServicioDatos_servicioFigure" lineWidth="3" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.1">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="255" green="35" blue="1"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="T_ServicioDatos_servicioExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="T_ServicioDatos_servicioExternalLabel" text="Nombre"/>
+    </descriptors>
+    <descriptors name="T_EnviarMensajeDatos_Enviar_MensajeFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="T_EnviarMensajeDatos_Enviar_MensajeFigure" lineWidth="3" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.2">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="255" green="35" blue="1"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="T_EnviarMensajeDatos_Enviar_MensajeExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="T_EnviarMensajeDatos_Enviar_MensajeExternalLabel" text="Nombre"/>
+    </descriptors>
+    <descriptors name="T_RecibirMensajeDatos_Recibir_MensajeFigure">
+      <actualFigure xsi:type="gmfgraph:PolylineConnection" name="T_RecibirMensajeDatos_Recibir_MensajeFigure" lineWidth="3" lineKind="LINE_DASH" targetDecoration="//@figures.0/@figures.3">
+        <foregroundColor xsi:type="gmfgraph:RGBColor" red="255" green="35" blue="1"/>
+      </actualFigure>
+    </descriptors>
+    <descriptors name="T_RecibirMensajeDatos_Recibir_MensajeExternalLabelFigure">
+      <actualFigure xsi:type="gmfgraph:Label" name="T_RecibirMensajeDatos_Recibir_MensajeExternalLabel" text="Nombre"/>
+    </descriptors>
+  </figures>
+  <nodes name="Actor" figure="ActorFigure"/>
+  <nodes name="Estado_Inicial" figure="Estado_InicialFigure"/>
+  <nodes name="T_Usuario" figure="T_UsuarioFigure"/>
+  <nodes name="T_Servicio" figure="T_ServicioFigure"/>
+  <nodes name="T_EnviarMensaje" figure="T_EnviarMensajeFigure"/>
+  <nodes name="T_RecibirMensaje" figure="T_RecibirMensajeFigure"/>
+  <nodes name="Estado_Final" figure="Estado_FinalFigure"/>
+  <nodes name="Objeto_de_Datos" figure="Objeto_de_DatosFigure"/>
+  <nodes name="TipoDatos" figure="TipoDatosFigure"/>
+  <connections name="TareaTarea_asociada" figure="TareaTarea_asociadaFigure"/>
+  <connections name="T_ServicioDatos_servicio" figure="T_ServicioDatos_servicioFigure"/>
+  <connections name="T_EnviarMensajeDatos_Enviar_Mensaje" figure="T_EnviarMensajeDatos_Enviar_MensajeFigure"/>
+  <connections name="T_RecibirMensajeDatos_Recibir_Mensaje" figure="T_RecibirMensajeDatos_Recibir_MensajeFigure"/>
+  <compartments name="ActorTareaCompartment" figure="ActorFigure" collapsible="true" accessor="//@figures.0/@descriptors.0/@accessors.1"/>
+  <compartments name="T_UsuarioDatosCompartment" figure="T_UsuarioFigure" collapsible="true" accessor="//@figures.0/@descriptors.2/@accessors.1"/>
+  <compartments name="Objeto_de_DatosTipodatosCompartment" figure="Objeto_de_DatosFigure" collapsible="true" accessor="//@figures.0/@descriptors.7/@accessors.1"/>
+  <labels name="ActorLabel" figure="ActorFigure" accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+  <labels name="Estado_InicialLabel" figure="Estado_InicialFigure" accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+  <labels name="T_UsuarioLabel" figure="T_UsuarioFigure" accessor="//@figures.0/@descriptors.2/@accessors.0"/>
+  <labels name="T_ServicioLabel" figure="T_ServicioFigure" accessor="//@figures.0/@descriptors.3/@accessors.0"/>
+  <labels name="T_EnviarMensajeLabel" figure="T_EnviarMensajeFigure" accessor="//@figures.0/@descriptors.4/@accessors.0"/>
+  <labels name="T_RecibirMensajeLabel" figure="T_RecibirMensajeFigure" accessor="//@figures.0/@descriptors.5/@accessors.0"/>
+  <labels name="Estado_FinalLabel" figure="Estado_FinalFigure" accessor="//@figures.0/@descriptors.6/@accessors.0"/>
+  <labels name="Objeto_de_DatosLabel" figure="Objeto_de_DatosFigure" accessor="//@figures.0/@descriptors.7/@accessors.0"/>
+  <labels name="TipoDatosLabel" figure="TipoDatosFigure" accessor="//@figures.0/@descriptors.8/@accessors.0"/>
+  <labels name="TareaTarea_asociadaExternalLabel" figure="TareaTarea_asociadaExternalLabelFigure" elementIcon="false"/>
+  <labels name="T_ServicioDatos_servicioExternalLabel" figure="T_ServicioDatos_servicioExternalLabelFigure" elementIcon="false"/>
+  <labels name="T_EnviarMensajeDatos_Enviar_MensajeExternalLabel" figure="T_EnviarMensajeDatos_Enviar_MensajeExternalLabelFigure" elementIcon="false"/>
+  <labels name="T_RecibirMensajeDatos_Recibir_MensajeExternalLabel" figure="T_RecibirMensajeDatos_Recibir_MensajeExternalLabelFigure" elementIcon="false"/>
+</gmfgraph:Canvas>
